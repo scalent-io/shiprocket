@@ -22,13 +22,13 @@ import (
 // 	fmt.Println("config :-----", config)
 // }
 
-func GetShiprocketClient(ctx context.Context, shiprocketConfig ShiprocketConfig) (*ShiprocketClient, error) {
+func GetShiprocketClient(ctx context.Context, config ShiprocketConfig) (*ShiprocketClient, error) {
 
-	config, err := InitConfig()
-	if err != nil {
-		log.Fatal(err)
-		fmt.Println("err", err)
-	}
+	// config, err := InitConfig()
+	// if err != nil {
+	// 	log.Fatal(err)
+	// 	fmt.Println("err", err)
+	// }
 
 	ShiprocketClient, err := initServer()
 	if err != nil {
