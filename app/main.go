@@ -6,21 +6,21 @@ import (
 	"log"
 )
 
-func main() {
-	config, err := InitConfig()
-	if err != nil {
-		log.Fatal(err)
-		fmt.Println("err", err)
-	}
+// func main() {
+// 	config, err := InitConfig()
+// 	if err != nil {
+// 		log.Fatal(err)
+// 		fmt.Println("err", err)
+// 	}
 
-	// token, err := auth.GetToken(config.Config.BaseURL, config.Config.Email, config.Config.Password)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// 	fmt.Println("err", err)
-	// }
+// 	// token, err := auth.GetToken(config.Config.BaseURL, config.Config.Email, config.Config.Password)
+// 	// if err != nil {
+// 	// 	log.Fatal(err)
+// 	// 	fmt.Println("err", err)
+// 	// }
 
-	fmt.Println("config :-----", config)
-}
+// 	fmt.Println("config :-----", config)
+// }
 
 func GetShiprocketClient(ctx context.Context, shiprocketConfig ShiprocketConfig) (*ShiprocketClient, error) {
 
