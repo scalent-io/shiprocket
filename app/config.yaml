@@ -1,0 +1,4 @@
+config:
+  baseurl: "https://apiv2.shiprocket.in"
+  email: "ahire.shubham12@gmail.com"
+  password: "Scalent@123"
