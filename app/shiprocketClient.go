@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"github.com/scalent-io/shiprocket/pkg"
@@ -6,11 +6,11 @@ import (
 
 type DependencyOptions struct {
 	ShiprocketService pkg.ShiprockertService
-	Token             string
 }
 
 type ShiprocketClient struct {
 	Options DependencyOptions
+	Token   string
 }
 
 func NewShiprocketClient(Options DependencyOptions) *ShiprocketClient {
