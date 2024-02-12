@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"context"
@@ -36,7 +36,7 @@ func GetShiprocketClient(ctx context.Context, shiprocketConfig ShiprocketConfig)
 		fmt.Println("err", err)
 	}
 
-	ShiprocketClient.Options.Token, err = ShiprocketClient.Options.ShiprocketService.GetToken(config.Config.BaseURL, config.Config.Email, config.Config.Password)
+	ShiprocketClient.Token, err = ShiprocketClient.Options.ShiprocketService.GetToken(config.Config.BaseURL, config.Config.Email, config.Config.Password)
 	if err != nil {
 		log.Fatal(err)
 		fmt.Println("err", err)
