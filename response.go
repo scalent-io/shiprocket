@@ -4,6 +4,12 @@ type ClientResponse struct {
 	Token string `json:"token"`
 }
 
+type ErrorResponse struct {
+	StatusCode int                 `json:"status_code"`
+	Message    string              `json:"message"`
+	Errors     map[string][]string `json:"errors"`
+}
+
 type CourierAvailabityResponse struct {
 	CompanyAutoShipmentInsuranceSetting bool `json:"company_auto_shipment_insurance_setting"`
 	CovidZones                          struct {
@@ -101,4 +107,85 @@ type CourierAvailabityResponse struct {
 	SellerAddress                []interface{} `json:"seller_address"`
 	Status                       int           `json:"status"`
 	UserInsuranceManadatory      bool          `json:"user_insurance_manadatory"`
+}
+
+type CreateOrderResponse struct {
+	AwbCode                interface{} `json:"awb_code"`
+	CourierCompanyID       interface{} `json:"courier_company_id"`
+	CourierName            interface{} `json:"courier_name"`
+	OnboardingCompletedNow int64       `json:"onboarding_completed_now"`
+	OrderID                int64       `json:"order_id"`
+	ShipmentID             int64       `json:"shipment_id"`
+	Status                 string      `json:"status"`
+	StatusCode             int64       `json:"status_code"`
+}
+
+type GenerateInvoiceResponse struct {
+	IsInvoiceCreated bool          `json:"is_invoice_created"`
+	InvoiceURL       string        `json:"invoice_url"`
+	NotCreated       []interface{} `json:"not_created"`
+}
+
+type GenerateManifestResponse struct {
+	ManifestURL string `json:"manifest_url"`
+	Status      int64  `json:"status"`
+}
+
+type GenerateLabelRespone struct {
+	LabelCreated int64         `json:"label_created"`
+	LabelURL     string        `json:"label_url"`
+	NotCreated   []interface{} `json:"not_created"`
+	Response     string        `json:"response"`
+}
+
+type GenerateAWBResponse struct {
+	AwbAssignStatus int64 `json:"awb_assign_status"`
+	Response        struct {
+		Data struct {
+			AppliedWeight    float64 `json:"applied_weight"`
+			AssignedDateTime struct {
+				Date         string `json:"date"`
+				Timezone     string `json:"timezone"`
+				TimezoneType int64  `json:"timezone_type"`
+			} `json:"assigned_date_time"`
+			AwbCode             string      `json:"awb_code"`
+			AwbCodeStatus       int64       `json:"awb_code_status"`
+			ChildCourierName    interface{} `json:"child_courier_name"`
+			Cod                 int64       `json:"cod"`
+			CompanyID           int64       `json:"company_id"`
+			CourierCompanyID    int64       `json:"courier_company_id"`
+			CourierName         string      `json:"courier_name"`
+			InvoiceNo           string      `json:"invoice_no"`
+			OrderID             int64       `json:"order_id"`
+			PickupScheduledDate string      `json:"pickup_scheduled_date"`
+			RoutingCode         string      `json:"routing_code"`
+			RtoRoutingCode      string      `json:"rto_routing_code"`
+			ShipmentID          int64       `json:"shipment_id"`
+			ShippedBy           struct {
+				Lat                       string `json:"lat"`
+				Long                      string `json:"long"`
+				RtoAddress1               string `json:"rto_address_1"`
+				RtoAddress2               string `json:"rto_address_2"`
+				RtoCity                   string `json:"rto_city"`
+				RtoCompanyName            string `json:"rto_company_name"`
+				RtoCountry                string `json:"rto_country"`
+				RtoEmail                  string `json:"rto_email"`
+				RtoPhone                  string `json:"rto_phone"`
+				RtoPostcode               string `json:"rto_postcode"`
+				RtoState                  string `json:"rto_state"`
+				ShipperAddress1           string `json:"shipper_address_1"`
+				ShipperAddress2           string `json:"shipper_address_2"`
+				ShipperCity               string `json:"shipper_city"`
+				ShipperCompanyName        string `json:"shipper_company_name"`
+				ShipperCountry            string `json:"shipper_country"`
+				ShipperEmail              string `json:"shipper_email"`
+				ShipperFirstMileActivated int64  `json:"shipper_first_mile_activated"`
+				ShipperPhone              string `json:"shipper_phone"`
+				ShipperPostcode           string `json:"shipper_postcode"`
+				ShipperState              string `json:"shipper_state"`
+			} `json:"shipped_by"`
+			TransporterID   string `json:"transporter_id"`
+			TransporterName string `json:"transporter_name"`
+		} `json:"data"`
+	} `json:"response"`
 }

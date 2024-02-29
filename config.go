@@ -3,7 +3,7 @@ package shiprocket
 import "time"
 
 type ClientConfig struct {
-	BaseURL  string
+	baseURL  string
 	Email    string
 	Password string
 }

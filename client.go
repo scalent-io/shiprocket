@@ -21,6 +21,8 @@ func NewShiprocketClient(config ClientConfig) (*ShiprocketClient, error) {
 		return nil, err
 	}
 
+	config.baseURL = BASE_URL
+
 	shiprocketClient = ShiprocketClient{
 		config: config,
 		tokenConfig: TokenConfig{
@@ -44,7 +46,7 @@ func GetToken(config ClientConfig) (string, error) {
 		return "", err
 	}
 
-	resp, err := http.Post(config.BaseURL+"/v1/external/auth/login", "application/json", bytes.NewBuffer(jsonData))
+	resp, err := http.Post(config.baseURL+"/v1/external/auth/login", "application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return "", err
 	}
